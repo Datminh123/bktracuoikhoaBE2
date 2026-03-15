@@ -739,7 +739,6 @@ async function seed() {
     await mongoose.connect(MONGODB_URI);
     console.log('✅ Kết nối MongoDB thành công!');
 
-    // Xóa dữ liệu cũ
     const User = require('./models/User');
     const Teacher = require('./models/Teacher');
     const TeacherPosition = require('./models/TeacherPosition');
@@ -749,7 +748,6 @@ async function seed() {
     await TeacherPosition.deleteMany({});
     console.log('🗑️  Đã xóa dữ liệu cũ!');
 
-    // Seed dữ liệu mới
     await User.insertMany(usersData);
     console.log(`👤 Đã thêm ${usersData.length} users!`);
 
